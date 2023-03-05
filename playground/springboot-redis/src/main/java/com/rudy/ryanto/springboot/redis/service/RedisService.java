@@ -28,4 +28,25 @@ public class RedisService {
             log.error(e.getMessage());
         }
     }
+
+    public Food getCache(String key) {
+        try{
+            log.info("get from cache : {}",key);
+            return (Food) redisTemplate.opsForValue().get(key);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public Boolean deleteCache(String key) {
+        try{
+            var isDelete = redisTemplate.opsForValue().getOperations().delete(key);
+            log.info("delete Cache : {} {}",key,isDelete);
+            return isDelete;
+        }catch (Exception e){
+            log.error("failed caused : ",e);
+            return false;
+        }
+    }
 }
