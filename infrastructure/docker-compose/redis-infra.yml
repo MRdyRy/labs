@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  redis:
+    container_name: ${REDIS_CONTAINER_NAME}
+    environment:
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    image: ${REDIS_VERSION}
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - ${GLOBAL_NETWORK:-infra}
