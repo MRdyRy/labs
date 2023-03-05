@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres:
+    image: ${POSTGRES_VERSION}
+    restart: always
+    environment:
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - ${GLOBAL_NETWORK:-labs}

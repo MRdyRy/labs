@@ -11,4 +11,22 @@ services:
       - "6379:6379"
     restart: always
     networks:
-      - ${GLOBAL_NETWORK:-infra}
+      - ${GLOBAL_NETWORK:-labs}
+
+  springboot-redis:
+    container_name: springboot-redis
+    build:
+      context: ../../playground/springboot-redis
+      dockerfile: Dockerfile
+    image: springboot-redis:latest
+    environment:
+      - redis_host=redis
+      - redis_port=${REDIS_PORT}
+      - redis.password=${REDIS_PASSWORD}
+    depends_on:
+      - redis
+    ports:
+      - "9111:9111"
+    restart: on-failure
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
