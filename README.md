@@ -16,6 +16,7 @@ labs for experiment
   - kong
   - cassandra
   - wallarm (api-firewall)
+  - zipkin
 - playground (springboot) :
   - actuator
   - amq
