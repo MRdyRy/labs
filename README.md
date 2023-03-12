@@ -33,3 +33,5 @@ labs for experiment
   - circuit breaker
   - rate limiter
   - restTemplate vs webclient
+  - sleuth
+  - stream
