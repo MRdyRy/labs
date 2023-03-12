@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  kafka-manager:
+    image: ${KAFKA_MANAGER_VERSION}
+    container_name: ${KAFKA_MANAGER_CONTAINER_NAME}
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: "zookeeper:2181"
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
