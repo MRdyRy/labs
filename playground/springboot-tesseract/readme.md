@@ -1,3 +1,4 @@
+<a href='https://github.com/MRdyRy/labs'> => Back to home </a> <br>
 Java OCR using Tesseract (idn tessdata) :
  https://github.com/tesseract-ocr/tessdoc
 
