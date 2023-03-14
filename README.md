@@ -27,7 +27,7 @@ labs for experiment
   - kafka
   - redis
   - oauth2 (keycloack)
-  - tess4j
+  - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-tesseract'>tesseract</a>
   - thymeleaf
   - aop
   - circuit breaker
