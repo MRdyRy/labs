@@ -3,13 +3,13 @@ labs for experiment
 
 
 - infrastructure
-  - redis
-  - activemq (amq)
-  - kafka
+  - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/redis-infra.yml'>redis</a>
+  - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/amq-infra.yml'>activemq (amq)</a>
+  - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kafka-cluster/kafka-cluster-infra.yml'>kafka</a>
   - camunda
   - elasticsearch
-  - zookeeper
-  - postgresql
+  - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kafka-cluster/zookeeper.yml'>zookeeper</a>
+  - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/postgre-infra.yml'>postgresql</a>
   - keycloack
   - mariadb
   - rabitmq
@@ -18,14 +18,14 @@ labs for experiment
   - wallarm (api-firewall)
   - zipkin
 - playground (springboot) :
-  - actuator
-  - amq
+  - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-actuator'>actuator</a>
+  - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-amq'>amq</a>
   - camunda
   - elasticsearch
   - graphql
   - jpa
   - kafka
-  - redis
+  - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-redis'>redis</a>
   - oauth2 (keycloack)
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-tesseract'>tesseract</a>
   - thymeleaf
