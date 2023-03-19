@@ -44,3 +44,5 @@ mvnw.cmd
 .mvn
 infrastructure/docker-compose/log
 infrastructure/docker-compose/volumes/
+
+*.log

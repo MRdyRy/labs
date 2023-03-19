@@ -1,0 +1,108 @@
+version: '3.8'
+services:
+#  KONG DATABASE
+  kong-database:
+    image: ${POSTGRES_VERSION}
+    restart: always
+    container_name: kong-database
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./db-kong:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+# KONG DATABASE MIGRATION
+  kong-migration:
+    image: kong:latest
+    command: "kong migrations bootstrap"
+    container_name: kong-migration
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
+    restart: on-failure
+    environment:
+      - KONG_DATABASE=postgres
+      - KONG_PG_HOST=kong-database
+      - KONG_PG_DATABASE=postgres
+      - KONG_PG_USER=postgres
+      - KONG_PG_PASSWORD=postgres
+    links:
+      - kong-database
+    depends_on:
+      - kong-database
+
+# KONG API GATEWAY
+  kong:
+    image: kong:latest
+    container_name: kong
+    restart: always
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
+    environment:
+      - KONG_PG_HOST=kong-database
+      - KONG_PROXY_LISTEN=0.0.0.0:8000
+      - KONG_PROXY_LISTEN_SSL=0.0.0.0:8443
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001
+      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+      - KONG_PROXY_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+      - KONG_PG_DATABASE=postgres
+      - KONG_PG_USER=postgres
+      - KONG_PG_PASSWORD=postgres
+    depends_on:
+      - kong-migration
+      - kong-database
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://kong:8001" ]
+      interval: 5s
+      timeout: 2s
+      retries: 15
+    ports:
+      - "8001:8001"
+      - "8000:8000"
+
+# KONG DATABASE PREPARE
+#  konga-prepare:
+#    image: pantsel/konga:next
+#    container_name: kong-prepare
+#    command: "-c prepare -a postgres -u postgresql://postgres:postgres@kong-database:5432/konga_db"
+#    networks:
+#      - ${GLOBAL_NETWORK:-labs}
+#    restart: on-failure
+#    links:
+#      - kong-database
+#    depends_on:
+#      - kong-database
+
+# KONG API GATEWAY UI
+  konga:
+    image: pantsel/konga:next
+    container_name: konga
+    restart: always
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
+    environment:
+      - DB_ADAPTER=postgres
+      - DB_HOST=kong-database
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - TOKEN_SECRET=km1GUr4RkcQD7DewhJPNXrCuZwcKmqjb
+      - DB_DATABASE=konga_db
+      - NODE_ENV=production
+      - KONGA_HOOK_TIMEOUT=120000
+      - KONGA_LOG_LEVEL=debug
+    volumes:
+      - ./kongadata:/app/kongadata
+    depends_on:
+      - kong-database
+    ports:
+      - "1337:1337"

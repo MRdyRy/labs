@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    image: ${MARIA_DB_IMAGE}
+    container_name: ${MARIA_DB_CONTAINER_NAME}
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIA_DB_ROOT_PASSWORD}
+    volumes:
+      - ./mariadb:/var/lib/mysql
+  adminer:
+    image: ${ADMINER_IMAGE}
+    container_name: ${ADMINER_CONTAINER_NAME}
+    restart: always
+    ports:
+      - 8080:8080
