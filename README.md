@@ -10,10 +10,10 @@
   - elasticsearch
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kafka-cluster/zookeeper.yml'>zookeeper</a>
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/postgre-infra.yml'>postgresql</a>
-  - keycloack
-  - mariadb
+  - <a href='https://github.com/MRdyRy/labs/tree/master/infrastructure/docker-compose/keycloak'>keycloack</a>
+  - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/mariadb_infra.yml'>mariadb</a>
   - rabitmq
-  - kong
+  - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kong_infra.yml'>kong</a>
   - cassandra
   - wallarm (api-firewall)
   - zipkin
