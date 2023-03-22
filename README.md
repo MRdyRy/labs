@@ -23,7 +23,7 @@
   - camunda
   - elasticsearch
   - graphql
-  - jpa
+  - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-jpa'>jpa</a>
   - kafka
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-redis'>redis</a>
   - oauth2 (keycloack)
