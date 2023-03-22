@@ -23,6 +23,7 @@
         <module>springboot-security-keycloak</module>
         <module>springboot-tesseract</module>
         <module>springboot-thymeleaf</module>
+        <module>common-domain</module>
     </modules>
     <properties>
     </properties>
