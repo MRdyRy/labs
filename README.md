@@ -15,7 +15,7 @@
   - rabitmq
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kong_infra.yml'>kong</a>
   - cassandra
-  - wallarm (api-firewall)
+  - wallarm
   - zipkin
 - playground (springboot) :
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-actuator'>actuator</a>
