@@ -1,5 +1,6 @@
 package com.rudy.ryanto.kafka.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.rudy.ryanto.common.domain.FoodRecommend;
 import com.rudy.ryanto.kafka.publisher.FoodPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,9 @@ public class FoodController {
     FoodPublisher foodPublisher;
 
     @PostMapping("/v1/publish/food")
-    public ResponseEntity<?> publishFood(@RequestBody FoodRecommend foodRecommend){
-        var pub = foodPublisher.sendRecomendedFood(foodRecommend);
-        return ResponseEntity.ok(pub? "success publish message":"failed publish message");
+    public ResponseEntity<?> publishFood(@RequestBody FoodRecommend foodRecommend) throws JsonProcessingException {
+        foodPublisher.sendRecomendedFood(foodRecommend);
+        return ResponseEntity.ok("publish message!!");
     }
 
 }

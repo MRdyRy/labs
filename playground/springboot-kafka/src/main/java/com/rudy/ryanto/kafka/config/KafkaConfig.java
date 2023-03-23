@@ -22,7 +22,7 @@ public class KafkaConfig {
     private String schemaRegistryUrlKey;
     @Value("${kafka.schema.registry.url}")
     private String schemaRegistryUrl;
-    @Value("${compression.type")
+    @Value("${compression.type}")
     private String compressionType;
     @Value("${kafka.producer.acks}")
     private String acks;
