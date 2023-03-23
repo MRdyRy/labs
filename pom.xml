@@ -12,6 +12,17 @@
 		<version>2.7.8</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+	<developers>
+		<developer>
+			<name>Rudy Ryanto</name>
+			<email>ryanserfanru@gmail.com</email>
+			<url>https://www.linkedin.com/in/rudy-ryanto/</url>
+			<roles>
+				<role>Sofware Engineer</role>
+				<role>Solution Architect</role>
+			</roles>
+		</developer>
+	</developers>
 
 	<groupId>com.rudy.ryanto</groupId>
 	<artifactId>labs</artifactId>
