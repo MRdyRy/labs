@@ -24,7 +24,7 @@
   - elasticsearch
   - graphql
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-jpa'>jpa</a>
-  - kafka
+  - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-kafka'>kafka</a>
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-redis'>redis</a>
   - oauth2 (keycloack)
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-tesseract'>tesseract</a>
