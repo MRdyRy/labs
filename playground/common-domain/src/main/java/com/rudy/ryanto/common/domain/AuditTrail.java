@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.Column;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 @SuperBuilder
@@ -20,7 +22,9 @@ public class AuditTrail {
     @Column
     private String updateBy;
     @Column
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
     @Column
+    @Temporal(TemporalType.TIMESTAMP)
     private Date updateDate;
 }
