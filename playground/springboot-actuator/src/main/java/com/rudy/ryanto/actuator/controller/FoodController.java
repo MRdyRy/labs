@@ -20,4 +20,9 @@ public class FoodController {
     public ResponseEntity<?> saveFood(@RequestBody Food food){
         return ResponseEntity.ok(foodService.saveFood2(food));
     }
+
+    @PostMapping("/v1/food/save2")
+    public ResponseEntity<?> saveFood2(){
+        return ResponseEntity.ok(foodService.saveDummyFood());
+    }
 }
