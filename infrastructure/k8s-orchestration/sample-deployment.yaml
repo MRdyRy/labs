@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-deployment-1
+spec:
+  selector:
+    matchLabels:
+      name: my-app1
+  template:
+    metadata:
+      labels:
+        name: my-app1
+    spec:
+      containers:
+        - name: report-service
+          image: serfanrud/report-service:v1
+          env:
+            - name: PORT
+              value: "9050"
