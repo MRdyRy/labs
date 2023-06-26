@@ -12,3 +12,13 @@ Apply:
 Check pod / deployment:
 - sudo kubectl get pods
 - sudo kubectl get deployments
+- sudo kubectl describe pod my-pod1
+- sudo kubectl describe deployment my-app-deployment-1
+
+Delete pod / deployment:
+- sudo kubectl delete pod my-pod1
+- sudo kubectl delete deploymeny my-app-deployment-1
+
+
+disarankan menggunakan deployment object daripada pod object.
+karna di dalam deployment object memanage replica set, pod.
