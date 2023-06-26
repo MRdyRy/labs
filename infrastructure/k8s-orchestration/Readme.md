@@ -11,3 +11,4 @@ Apply:
 
 Check pod / deployment:
 - sudo kubectl get pods
+- sudo kubectl get deployments
