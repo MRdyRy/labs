@@ -24,6 +24,7 @@
         <module>springboot-tesseract</module>
         <module>springboot-thymeleaf</module>
         <module>common-domain</module>
+        <module>cloud-config</module>
     </modules>
     <properties>
     </properties>
