@@ -24,15 +24,18 @@ Delete pod / deployment:
 disarankan menggunakan deployment object daripada pod object.
 karna di dalam deployment object memanage replica set, pod.
 
-
-ClusterIp = mengekspos yg ada didalam pod ke luar pod
-NodePort = mengekspos akses pod ke semua vm yg ada di dalam cluster. Menjadikan akses dari luar cluster yg masih dalam satu network dengan cluster tersebut diperbolehkan.
-LoadBalancer = ekspos akses ke internet/public
+<ul>
+<li>ClusterIp = mengekspos yg ada didalam pod ke luar pod</li>
+<li>NodePort = mengekspos akses pod ke semua vm yg ada di dalam cluster. Menjadikan akses dari luar cluster yg masih dalam satu network dengan cluster tersebut diperbolehkan.</li>
+<li>LoadBalancer = ekspos akses ke internet/public</li>
+  
+</ul>
 
 
 
 service object :
 Sample:
+<code>
 apiVersion: v1
 kind: Service
 metadata:
@@ -44,7 +47,7 @@ spec:
   ports:
     - port: 8080 // port service
       targetPort: 9050 // target port yg akan di redirect ke port pd my-app1 di cluster ketika service object dipanggil
-
+</code>
 
 
 
