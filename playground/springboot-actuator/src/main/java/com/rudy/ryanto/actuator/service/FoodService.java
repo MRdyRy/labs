@@ -2,8 +2,10 @@ package com.rudy.ryanto.actuator.service;
 
 import com.rudy.ryanto.actuator.domain.Food;
 import com.rudy.ryanto.actuator.repository.FoodRepository;
+import lombok.extern.slf4j.Slf4j;
 import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -29,19 +31,21 @@ public class FoodService {
         }
     }
 
-    public List<Food> saveDummyFood(){
+    public Integer saveDummyFood(Integer x){
         List<Food> foodList = new ArrayList<>();
-        try {
-            for (int i =0; i<10000;i++){
+//        try {
+            for (int i =0; i<x;i++){
                 Food food = new Food();
                 food.setFoodName(UUID.randomUUID().toString());
                 food.setPrice(i);
                 foodList.add(food);
             }
             foodRepository.saveAll(foodList);
-        }catch (Exception e){
-            throw e;
-        }
-        return foodList;
+            foodRepository.findById(1234221L);
+            foodRepository.findAll();
+//        }catch (Exception e){
+//            throw e;
+//        }
+        return foodList.size();
     }
 }
