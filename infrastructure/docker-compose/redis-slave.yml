@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  redis:
+    container_name: ${REDIS_CONTAINER_NAME}
+    environment:
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    image: ${REDIS_VERSION}
+    ports:
+      - "6379:6379"
+    restart: always
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
+      
+  redis-slave:
+    image: ${REDIS_VERSION}
+    container_name: slave
+    ports:
+      - "6380:6379"
+    command: redis-server --slaveof ${REDIS_CONTAINER_NAME} 6379
+    depends_on:
+      - redis
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
