@@ -6,7 +6,8 @@
 		<module>infrastructure</module>
 		<module>playground</module>
         <module>simple-case</module>
-	</modules>
+        <module>quarkus-playground</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>

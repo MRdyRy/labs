@@ -2,12 +2,8 @@ package com.rudy.ryanto.actuator.service;
 
 import com.rudy.ryanto.actuator.domain.Food;
 import com.rudy.ryanto.actuator.repository.FoodRepository;
-import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +27,7 @@ public class FoodService {
         }
     }
 
-    public Integer saveDummyFood(Integer x){
+    public Integer saveDummyFood(int x){
         List<Food> foodList = new ArrayList<>();
 //        try {
             for (int i =0; i<x;i++){
