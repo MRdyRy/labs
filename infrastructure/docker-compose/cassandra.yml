@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  cassandra-1:
+    image: ${CASSANDRA_VERSION}
+    container_name: cassandra-1
+    restart: always
+    ports:
+      - '7000:7000'
+    volumes:
+      - ./db/cassandra:/var/lib/cassandra
+    networks:
+      - ${GLOBAL_NETWORK:-labs}

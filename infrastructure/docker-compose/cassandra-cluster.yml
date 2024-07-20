@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  cassandra-1:
+    image: ${CASSANDRA_VERSION}
+    container_name: cassandra-1
+    restart: always
+    environment:
+      - CASSANDRA_BROADCAST_ADDRESS=127.0.0.0
+    ports:
+      - '7000:7000'
+    volumes:
+      - ./db/cassandra:/var/lib/cassandra
+    networks:
+      - ${GLOBAL_NETWORK:-labs}
+  cassandra-2:
+    image: ${CASSANDRA_VERSION}
+    container_name: cassandra-2
+    restart: always
+    environment:
+      - CASSANDRA_BROADCAST_ADDRESS=127.0.0.0
+      - CASSANDRA_SEEDS=127.0.0.0
+    ports:
+      - '7001:7000'
+    volumes:
+      - ./db/cassandra:/var/lib/cassandra
+    depends_on:
+      - cassandra-1
+    networks:
+      - ${GLOBAL_NETWORK:-labs}

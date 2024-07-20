@@ -6,7 +6,6 @@
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/redis-infra.yml'>redis</a>
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/amq-infra.yml'>activemq (amq)</a>
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kafka-cluster/kafka-cluster-infra.yml'>kafka</a>
-  - camunda
   - elasticsearch
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kafka-cluster/zookeeper.yml'>zookeeper</a>
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/postgre-infra.yml'>postgresql</a>
@@ -14,14 +13,14 @@
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/mariadb_infra.yml'>mariadb</a>
   - rabitmq
   - <a href='https://github.com/MRdyRy/labs/blob/master/infrastructure/docker-compose/kong_infra.yml'>kong</a>
-  - cassandra
-  - wallarm
+  - <a href="#">cassandra</a>
   - zipkin
+  - <a href="#">RedPanda</a>
+  - airflow
+  - airbyte
 - playground (springboot) :
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-actuator'>actuator</a>
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-amq'>amq</a>
-  - camunda
-  - elasticsearch
   - graphql
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-jpa'>jpa</a>
   - <a href='https://github.com/MRdyRy/labs/tree/master/playground/springboot-kafka'>kafka</a>
@@ -35,3 +34,7 @@
   - restTemplate vs webclient
   - sleuth
   - stream
+  - grpc
+  - failover redis
+  - internal cache vs external cache
+  - cache ownership
