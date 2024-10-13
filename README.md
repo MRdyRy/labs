@@ -38,3 +38,7 @@
   - failover redis
   - internal cache vs external cache
   - cache ownership
+- rust playground
+  - how to install
+  - sample app
+  - crud
